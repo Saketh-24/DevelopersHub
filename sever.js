@@ -12,7 +12,7 @@ app.use(express.json()); // json body parser
 
 //routes
 app.use("/api/user", UserRoutes); // login and register
-app.use("/api/allprofiles", ProfileRoutes); // display profiles
+app.use("/api/Profiles", ProfileRoutes); // display profiles
 
 const PORT = 8080;
 app.listen(PORT, () => {

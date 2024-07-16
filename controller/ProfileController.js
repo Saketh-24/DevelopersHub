@@ -12,4 +12,14 @@ const AllProfiles = async (req, res) => {
   }
 };
 
-module.exports = AllProfiles;
+const MyProfile = async (req, res) => {
+  const _id = req.user;
+  try {
+    const MyProfile = await User.findById(_id).select("-password");
+    return res.status(201).json(MyProfile);
+  } catch (error) {
+    return res.status(400).send("failed to get Myprofile");
+  }
+};
+
+module.exports = { AllProfiles, MyProfile };

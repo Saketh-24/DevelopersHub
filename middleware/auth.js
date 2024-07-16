@@ -13,8 +13,8 @@ const protect = async (req, res, next) => {
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET || "saketh"); // Use environment variable for JWT secret
 
-      // After decoding, find the user credential and add them to req object as req.user
-      req.user = await User.findById(decoded.id).select("-password");
+      // After decoding, find the user id and add it to req object as req.user
+      req.user = decoded.id;
 
       next();
     } catch (error) {
