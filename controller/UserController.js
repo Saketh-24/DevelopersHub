@@ -25,7 +25,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }); // findOne gives u an Object, whereas find gives array of Objects
     if (!user) {
       return res.status(401).send("user doesnt exist");
     } else if (!(await bcrypt.compare(password, user.password))) {
