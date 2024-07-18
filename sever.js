@@ -9,6 +9,7 @@ const ReviewRoutes = require("./routes/ReviewRoutes");
 dbConnection();
 
 //middleware
+app.use(cors());
 app.use(express.json()); // json body parser
 
 //routes
