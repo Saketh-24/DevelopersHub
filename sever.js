@@ -4,7 +4,7 @@ const dbConnection = require("./config/db");
 const UserRoutes = require("./routes/UserRoutes");
 const ProfileRoutes = require("./routes/ProfileRoutes");
 const ReviewRoutes = require("./routes/ReviewRoutes");
-
+const cors = require("cors");
 // connecting database
 dbConnection();
 
