@@ -1,0 +1,49 @@
+.dev-logo {
+  height: 150px;
+  width: 150px;
+  font-size: 130px;
+}
+
+.dev-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dev-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  padding: 40px;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dev-details {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+h3 {
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.viewProfile-btn {
+  padding: 10px;
+  cursor: pointer;
+}

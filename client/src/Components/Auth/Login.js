@@ -4,12 +4,15 @@ import Nav from "../Nav";
 import "./Login.css";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const initialValues = {
     email: "",
     password: "",
   };
+
+  const Navigate = useNavigate();
 
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -51,7 +54,11 @@ const Login = () => {
           formValues
         );
         console.log(response.data);
+        localStorage.setItem("token", response.data.token);
         toast.success("Login successfull");
+        setTimeout(() => {
+          Navigate("/devPage");
+        }, 3000);
       } catch (error) {
         toast.error(error.response.data);
       } finally {

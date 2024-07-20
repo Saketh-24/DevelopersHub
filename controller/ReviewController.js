@@ -17,6 +17,16 @@ const addreview = async (req, res) => {
   }
 };
 
+const devReview = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const review = await Reviews.find({ taskworker: id.toString() });
+    return res.status(201).json(review);
+  } catch (error) {
+    return res.status(500).send("something went wrong");
+  }
+};
+
 const Myreview = async (req, res) => {
   try {
     const review = await Reviews.find({ taskworker: req.user.toString() });
@@ -26,4 +36,4 @@ const Myreview = async (req, res) => {
   }
 };
 
-module.exports = { addreview, Myreview };
+module.exports = { addreview, devReview, Myreview };

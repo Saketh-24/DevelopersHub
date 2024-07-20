@@ -12,6 +12,16 @@ const AllProfiles = async (req, res) => {
   }
 };
 
+const IndividualProfile = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const details = await User.findById(id).select("-password");
+    return res.status(200).json(details);
+  } catch (error) {
+    return res.status(500).send("something wrong");
+  }
+};
+
 const MyProfile = async (req, res) => {
   const _id = req.user;
   try {
@@ -22,4 +32,4 @@ const MyProfile = async (req, res) => {
   }
 };
 
-module.exports = { AllProfiles, MyProfile };
+module.exports = { AllProfiles, IndividualProfile, MyProfile };
